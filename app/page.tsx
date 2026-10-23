@@ -1,0 +1,32 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowDownRight, ArrowRight } from "lucide-react";
+import { products } from "@/data/products";
+import { ProductCard } from "@/components/product-card";
+import { Reveal } from "@/components/motion";
+export const dynamic = "force-static";
+export default function HomePage() {
+  return <>
+    <section className="grain relative flex min-h-[690px] h-[100svh] max-h-[1050px] items-end overflow-hidden bg-ink text-ivory">
+      <Image src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2400&q=90" alt="Sculptural gold jewelry in soft shadow" fill priority sizes="100vw" className="hero-image object-cover object-center opacity-65"/>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-black/10"/><div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15"/>
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-20 pt-36 md:px-16 md:pb-28">
+        <p className="eyebrow mb-7 text-champagne">A study in the enduring</p>
+        <h1 className="font-editorial max-w-[760px] text-[clamp(4rem,9.3vw,9.5rem)] font-light leading-[.82] tracking-[-.035em]">Beauty, held<br/><i className="font-light">in time.</i></h1>
+        <p className="mt-8 max-w-sm text-sm leading-7 text-white/75 md:text-base">Timeless pieces, crafted to be treasured. Discover a quieter kind of brilliance.</p>
+        <Link href="#collection" className="outline-button mt-9 border-ivory text-ivory">Discover the collection <ArrowRight size={14} className="ml-4"/></Link>
+      </div>
+      <div className="absolute bottom-9 right-8 hidden items-center gap-3 text-white/70 md:flex"><span className="eyebrow">01 / 04</span><span className="h-px w-14 bg-champagne"/></div>
+      <Link href="#collections" aria-label="Scroll to collections" className="absolute bottom-8 left-6 text-white/70 md:left-16"><ArrowDownRight size={22} strokeWidth={1}/></Link>
+    </section>
+    <section id="collections" className="mx-auto max-w-[1600px] px-6 py-24 md:px-12 md:py-36">
+      <Reveal><div className="grid gap-8 md:grid-cols-2 md:items-end"><div><p className="eyebrow text-champagne">The house collection</p><h2 className="font-editorial mt-5 text-5xl font-light leading-none md:text-7xl">Made for your<br/><i>own kind of forever.</i></h2></div><p className="max-w-sm text-sm leading-7 text-muted md:justify-self-end">Distinctive forms. Considered materials. Jewelry that feels like it has always belonged to you — and always will.</p></div></Reveal>
+      <div className="mt-14 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-4 md:gap-5">
+        {[{name:"Rings",href:"/collections/rings",img:"photo-1605100804763-247f67b3557e"},{name:"Necklaces",href:"/collections/necklaces",img:"photo-1599643478518-a784e5dc4c8f"},{name:"Earrings",href:"/collections/earrings",img:"photo-1535632066927-ab7c9ab60908"},{name:"Bracelets",href:"/collections/bracelets",img:"photo-1611591437281-460bfbe1220a"}].map((item,i)=><Reveal key={item.name} delay={i*.08}><Link href={item.href} className="group block"><div className="relative aspect-[4/5] overflow-hidden bg-[#e8e2d9]"><Image src={`https://images.unsplash.com/${item.img}?auto=format&fit=crop&w=850&q=85`} alt={`${item.name} collection`} fill sizes="(max-width:768px) 50vw,25vw" className="object-cover transition-transform duration-1000 ease-silk group-hover:scale-[1.04]"/><div className="absolute inset-0 bg-black/5 transition-colors group-hover:bg-black/15"/></div><div className="flex items-center justify-between border-b border-champagne/60 py-4"><span className="font-editorial text-2xl md:text-3xl">{item.name}</span><ArrowRight size={16} className="transition-transform group-hover:translate-x-1"/></div></Link></Reveal>)}
+      </div>
+    </section>
+    <section id="collection" className="bg-[#eee8de] px-6 py-24 md:px-12 md:py-32"><div className="mx-auto max-w-[1600px]"><Reveal><div className="mb-12 flex flex-col justify-between gap-5 md:mb-16 md:flex-row md:items-end"><div><p className="eyebrow text-champagne">Chosen with intention</p><h2 className="font-editorial mt-4 text-5xl font-light md:text-7xl">The considered edit</h2></div><Link href="/collections" className="gold-link eyebrow inline-flex items-center gap-3 self-start pb-1">View all pieces <ArrowRight size={14}/></Link></div></Reveal><div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 md:gap-x-6 md:gap-y-14">{products.slice(0,8).map((product,i)=><Reveal key={product.id} delay={(i%4)*.06}><ProductCard product={product}/></Reveal>)}</div></div></section>
+    <section className="relative overflow-hidden bg-ink text-ivory"><div className="grid min-h-[600px] md:grid-cols-2"><div className="relative min-h-[420px]"><Image src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=90" alt="A close study of fine jewelry and gold" fill sizes="(max-width:768px) 100vw,50vw" className="object-cover opacity-80"/></div><div className="flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24"><Reveal><p className="eyebrow text-champagne">The art of keeping</p><h2 className="font-editorial mt-6 text-5xl font-light leading-[.95] md:text-7xl">Objects of beauty.<br/><i>Stories of a lifetime.</i></h2><p className="mt-7 max-w-md text-sm leading-7 text-white/65">We believe the most meaningful pieces are not made for a moment, but for all the moments that follow. Every detail is considered. Every finish, deliberate.</p><Link href="/about" className="outline-button mt-9 self-start border-ivory text-ivory">Discover our house <ArrowRight size={14} className="ml-4"/></Link></Reveal></div></div></section>
+    <section className="px-6 py-12 md:px-12"><div className="mx-auto grid max-w-[1400px] gap-6 py-8 sm:grid-cols-3"><div className="flex gap-4"><span className="text-champagne">01</span><div><p className="eyebrow">Considered craft</p><p className="mt-2 text-xs leading-6 text-muted">Finished by hand, made to be worn for years.</p></div></div><div className="flex gap-4"><span className="text-champagne">02</span><div><p className="eyebrow">A considered delivery</p><p className="mt-2 text-xs leading-6 text-muted">Complimentary shipping & gift packaging.</p></div></div><div className="flex gap-4"><span className="text-champagne">03</span><div><p className="eyebrow">Certified authentic</p><p className="mt-2 text-xs leading-6 text-muted">Materials and stones described with care.</p></div></div></div></section>
+  </>;
+}

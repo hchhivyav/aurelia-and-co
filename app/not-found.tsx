@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <section className="flex min-h-[75vh] flex-col items-center justify-center px-6 pt-24 text-center"><p className="eyebrow text-champagne">Aurelia & Co.</p><h1 className="font-editorial mt-5 text-6xl">A piece out of place.</h1><p className="mt-4 text-sm text-muted">We could not find the page you were looking for.</p><Link href="/collections" className="outline-button mt-8">Return to the collection</Link></section>}
