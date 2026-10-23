@@ -37,7 +37,7 @@ npm run build
 ```
 
 ## Project Links
-- **Live Website:** Add your deployed URL here.
+- **Live Website:** https://aurelia-and-co.vercel.app/
 - **GitHub:** https://github.com/hchhivyav/aurelia-and-co
 
 
