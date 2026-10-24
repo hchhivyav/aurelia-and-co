@@ -10,6 +10,7 @@ A responsive jewelry e-commerce website built with Next.js, React, TypeScript, a
 - Checkout form and demo order
 - Printable HTML invoice
 - Responsive design
+- Local static product images
 
 ## Technologies
 
@@ -20,7 +21,7 @@ A responsive jewelry e-commerce website built with Next.js, React, TypeScript, a
 
 ## SSR and SSG
 
-- **SSG:** Pre-generates suitable pages, including product pages.
+- **SSG (Static Site Generation):** Pre-generates suitable pages, including product pages.
 - **Client-side rendering:** Handles cart and checkout interactions.
 
 ## Run Locally
@@ -32,7 +33,7 @@ npm run dev
 
 Open http://localhost:3000.
 
-Check the project:
+## Check the Project
 
 ```bash
 npm run typecheck
